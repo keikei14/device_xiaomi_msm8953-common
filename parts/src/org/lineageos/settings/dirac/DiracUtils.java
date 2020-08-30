@@ -22,6 +22,7 @@ import android.os.Handler;
 import android.os.UserHandle;
 import android.os.SystemClock;
 import android.view.KeyEvent;
+import android.media.audiofx.DiracSound;
 import android.media.session.MediaController;
 import android.media.session.MediaSessionManager;
 import android.media.session.PlaybackState;
@@ -34,7 +35,7 @@ public final class DiracUtils {
     private static DiracUtils mInstance;
     private MediaSessionManager mMediaSessionManager;
     private Handler mHandler = new Handler();
-    private Context mContext;
+    private Context mContext;	
 
     public static DiracUtils getInstance() {
         if (mInstance == null) {
@@ -50,7 +51,7 @@ public final class DiracUtils {
     }
 
     public void onBootCompleted() {
-        setEnabled(mDiracSound.getMusic() == 1);
+        setEnabled(true);
         mDiracSound.setHeadsetType(mDiracSound.getHeadsetType());
         setLevel(getLevel());
         mInstance = this;
